@@ -10,7 +10,8 @@ typedef struct Node
 
 void InitNode(PNode);
 bool emptyNode(PNode);
-void Creatlink(PNode);
+void LastCreatlink(PNode);   //尾插法创建列表
+void HeadCreatlink(PNode);   //头插法创建列表
 void showlist(PNode);
 void AddNode(PNode, int, int);
 void DeletNode(PNode, int);
@@ -20,7 +21,8 @@ int main()
 {
 	pNode p;
 	InitNode(&p);
-	Creatlink(&p);
+	//LastCreatlink(&p);
+	HeadCreatlink(&p);
 	showlist(&p);
 	cout << endl;
 	DeletNode(&p, 5);
@@ -46,7 +48,8 @@ void InitNode(PNode p)
 	p->date = 0;
 }
 
-void Creatlink(PNode d)
+/*
+void LastCreatlink(PNode d)
 {
 	int i, k;
 	PNode s = NULL;
@@ -62,6 +65,28 @@ void Creatlink(PNode d)
 		p->pNext = s;
 		p = s;
 	}
+}
+*/
+
+void HeadCreatlink(PNode p);
+{
+	int i,n;
+	PNode k = new PNode;
+	pNode s;
+	p->pNext = NULL;
+
+	cout << "请输入生成的节点数："<<endl;
+	cin >> n;
+
+	for (i = 0; i < n; i++)
+	{
+		s = new pNode;
+		cout << "第" << n + 1 << "节点的值是：" << endl;
+		cin >> k->date;
+		k->pNext = p->pNext;
+		p = k;
+	}
+	
 }
 
 void showlist(PNode p)
@@ -128,3 +153,5 @@ void DeletNode(PNode p, int size)
 		free(s);
 	}
 }
+
+
